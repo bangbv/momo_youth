@@ -6,6 +6,8 @@ import random
 import re
 import sys
 
+from pandas import pivot
+
 #
 # Complete the 'quickSort' function below.
 #
@@ -25,18 +27,15 @@ def quickSort(arr):
         elif i == pivot:
             equal.append(i)
     res = left + equal + right
-    return res
+    return res, pivot
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
 
     n = int(input().strip())
 
-    arr = list(map(int, input().rstrip().split()))
+    arr = list([6, 5, 2, 8, 3, 7, 3, 8,3, 7, 2, 7, 2, 7, 3, 7 ,4 ,655,4 ,7 ,4 ,74])
 
-    result = quickSort(arr)
+    result, pivot = quickSort(arr)
 
-    fptr.write(' '.join(map(str, result)))
-    fptr.write('\n')
-
-    fptr.close()
+    print(result, pivot)
